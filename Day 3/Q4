@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class NumberFormatExceptionDemo {
+
+    public static void main(String[] args) {
+        try {
+            parseNonNumericString();
+        } catch (NumberFormatException e) {
+            System.out.println("Parsing a non-numeric string: " + e.getMessage());
+        }
+
+        try {
+            readUserInputWithoutValidation();
+        } catch (NumberFormatException e) {
+            System.out.println("Reading user input without validation: " + e.getMessage());
+        }
+
+        try {
+            formattingIssuesInDecimalFormat();
+        } catch (NumberFormatException e) {
+            System.out.println("Formatting issues in Decimal Format: " + e.getMessage());
+        }
+
+        try {
+            incorrectlyUsingLocalizedDecimalSeparators();
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrectly using localized decimal separators: " + e.getMessage());
+        }
+    }
+
+    static void parseNonNumericString() {
+        String nonNumeric = "abc";
+        int number = Integer.parseInt(nonNumeric);
+    }
+
+    static void readUserInputWithoutValidation() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        String input = scanner.nextLine();
+        int number = Integer.parseInt(input);
+    }
+
+    static void formattingIssuesInDecimalFormat() {
+        String invalidDecimal = "12.34.56";
+        double value = Double.parseDouble(invalidDecimal);
+    }
+
+    static void incorrectlyUsingLocalizedDecimalSeparators() {
+        String numberWithComma = "1,234.56";
+        double value = Double.parseDouble(numberWithComma.replace(",", ""));
+    }
+}
