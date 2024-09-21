@@ -1,0 +1,53 @@
+interface Tree {
+    void fruits(String fruit1, String fruit2);
+    void leaves(String leaf1, String leaf2, String leaf3);
+    void flowers(String flower1, String flower2, String flower3, String flower4);
+}
+
+class Branch1 implements Tree {
+    @Override
+    public void fruits(String fruit1, String fruit2) {
+        System.out.println("Branch1 fruits: " + fruit1 + ", " + fruit2);
+    }
+
+    @Override
+    public void leaves(String leaf1, String leaf2, String leaf3) {
+        System.out.println("Branch1 leaves: " + leaf1 + ", " + leaf2 + ", " + leaf3);
+    }
+
+    @Override
+    public void flowers(String flower1, String flower2, String flower3, String flower4) {
+        System.out.println("Branch1 flowers: " + flower1 + ", " + flower2 + ", " + flower3 + ", " + flower4);
+    }
+}
+
+class Branch2 implements Tree {
+    @Override
+    public void fruits(String fruit1, String fruit2) {
+        System.out.println("Branch2 fruits: " + fruit1 + ", " + fruit2);
+    }
+
+    @Override
+    public void leaves(String leaf1, String leaf2, String leaf3) {
+        System.out.println("Branch2 leaves: " + leaf1 + ", " + leaf2 + ", " + leaf3);
+    }
+
+    @Override
+    public void flowers(String flower1, String flower2, String flower3, String flower4) {
+        System.out.println("Branch2 flowers: " + flower1 + ", " + flower2 + ", " + flower3 + ", " + flower4);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Branch1 branch1 = new Branch1();
+        branch1.fruits("Apple", "Banana");
+        branch1.leaves("Maple", "Oak", "Birch");
+        branch1.flowers("Rose", "Tulip", "Lily", "Daisy");
+
+        Branch2 branch2 = new Branch2();
+        branch2.fruits("Mango", "Orange");
+        branch2.leaves("Pine", "Cedar", "Spruce");
+        branch2.flowers("Sunflower", "Daffodil", "Chrysanthemum", "Orchid");
+    }
+}
