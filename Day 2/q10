@@ -1,0 +1,19 @@
+final class FinalClass {
+    final int finalVariable;
+
+    FinalClass(int value) {
+        this.finalVariable = value;
+    }
+
+    final void finalMethod() {
+        System.out.println("This is a final method. Final variable value: " + finalVariable);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        FinalClass finalClassInstance = new FinalClass(100);
+        System.out.println("Final variable value: " + finalClassInstance.finalVariable);
+        finalClassInstance.finalMethod();
+    }
+}
