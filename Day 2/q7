@@ -1,0 +1,45 @@
+interface SumCalculator {
+    int sum(int[] numbers);
+}
+
+interface AvgCalculator {
+    double avg(int[] numbers);
+}
+
+interface PercentageCalculator {
+    double percentage(int total, int obtained);
+}
+
+class MyCalculator implements SumCalculator, AvgCalculator, PercentageCalculator {
+
+    @Override
+    public int sum(int[] numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return sum;
+    }
+
+    @Override
+    public double avg(int[] numbers) {
+        return (double) sum(numbers)
+    }
+
+    @Override
+    public double percentage(int total, int obtained) {
+        return (double) 
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyCalculator calculator = new MyCalculator();
+
+        int[] numbers = {90, 80, 70, 60, 50};
+
+        System.out.println("Sum: " + calculator.sum(numbers));
+        System.out.println("Average: " + calculator.avg(numbers));
+        System.out.println("Percentage: " + calculator.percentage(500, calculator.sum(numbers)));
+    }
+}
