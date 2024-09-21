@@ -1,0 +1,24 @@
+class Base {
+    void area(int a, int b) {
+        int area = a * a;
+        System.out.println("Area of the square: " + area);
+    }
+}
+
+class Derived extends Base {
+    @Override
+    void area(int a, int b) {
+        int area = a * b;
+        System.out.println("Area of the rectangle: " + area);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Base square = new Base();
+        square.area(5, 0);  // Calculates the area of a square with side 5
+
+        Derived rectangle = new Derived();
+        rectangle.area(5, 10);  // Calculates the area of a rectangle with sides 5 and 10
+    }
+}
