@@ -1,0 +1,25 @@
+interface Sum {
+    double sum(double[] numbers);
+}
+
+interface Avg {
+    double avg(double[] numbers);
+}
+
+interface Percentage {
+    double percentage(double part, double whole);
+}
+
+class MathOperations implements Sum, Avg, Percentage {
+    public double sum(double[] numbers) {
+        return Arrays.stream(numbers).sum();
+    }
+
+    public double avg(double[] numbers) {
+        return sum(numbers) / numbers.length;
+    }
+
+    public double percentage(double part, double whole) {
+        return (part / whole) * 100;
+    }
+}
