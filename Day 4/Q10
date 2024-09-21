@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class KthSmallestElement {
+    public static Integer findKthSmallest(Set<Integer> set, int k) {
+        List<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);
+        return (k > 0 && k <= list.size()) ? list.get(k - 1) : null;
+    }
+
+    public static Integer findKthSmallestUsingArrayList(Set<Integer> set, int k) {
+        ArrayList<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);
+        return (k > 0 && k <= list.size()) ? list.get(k - 1) : null;
+    }
+
+    public static boolean areSetsEqual(Set<Integer> setA, Set<Integer> setB) {
+        return setA.equals(setB);
+    }
+}
