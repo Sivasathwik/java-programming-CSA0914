@@ -1,0 +1,5 @@
+import java.util.*;
+
+public List<Integer> removeDuplicates(List<Integer> list) {
+    return new ArrayList<>(new LinkedHashSet<>(list));
+}
