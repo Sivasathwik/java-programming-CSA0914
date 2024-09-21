@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class UniqueAndLargestElement {
+    public static int findUniqueCount(Set<Integer> set) {
+        return set.size();
+    }
+
+    public static Integer findLargestElement(Set<Integer> set) {
+        return Collections.max(set);
+    }
+}
