@@ -1,0 +1,15 @@
+interface Tree {
+    void fruits();
+}
+
+class Branch1 implements Tree {
+    public void fruits() {
+        System.out.println("Branch1 fruits: Apples, Oranges");
+    }
+}
+
+class Branch2 implements Tree {
+    public void fruits() {
+        System.out.println("Branch2 fruits: Bananas, Grapes");
+    }
+}
