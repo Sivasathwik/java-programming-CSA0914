@@ -1,0 +1,28 @@
+class StaticExample {
+
+    static int staticVariable = 10;
+
+    static {
+        System.out.println("Static block executed. Static variable initialized to: " + staticVariable);
+    }
+
+    static void staticMethod() {
+        System.out.println("Static method called. Static variable value: " + staticVariable);
+    }
+
+    static class StaticNestedClass {
+        static void display() {
+            System.out.println("Static nested class method called. Static variable value: " + staticVariable);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Accessing static variable: " + StaticExample.staticVariable);
+        
+        StaticExample.staticMethod();
+        
+        StaticExample.StaticNestedClass.display();
+    }
+}
