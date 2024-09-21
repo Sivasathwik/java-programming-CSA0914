@@ -1,0 +1,53 @@
+public class ArithmeticExceptionsDemo {
+
+    public static void main(String[] args) {
+        try {
+            divideByZero();
+        } catch (ArithmeticException e) {
+            System.out.println("Division by zero: " + e.getMessage());
+        }
+
+        try {
+            logarithmOfNegativeOrZero(-1);
+        } catch (ArithmeticException e) {
+            System.out.println("Logarithm of negative or zero: " + e.getMessage());
+        }
+
+        try {
+            tan90Degree();
+        } catch (ArithmeticException e) {
+            System.out.println("Tan of 90 degrees: " + e.getMessage());
+        }
+
+        try {
+            zeroPowerZero();
+        } catch (ArithmeticException e) {
+            System.out.println("Zero power zero: " + e.getMessage());
+        }
+    }
+
+    static void divideByZero() {
+        int result = 10 / 0;
+    }
+
+    static void logarithmOfNegativeOrZero(double value) {
+        if (value <= 0) {
+            throw new ArithmeticException("Logarithm of non-positive number.");
+        }
+        double logValue = Math.log(value);
+    }
+
+    static void tan90Degree() {
+        double tanValue = Math.tan(Math.toRadians(90));
+        if (Double.isInfinite(tanValue)) {
+            throw new ArithmeticException("Tan of 90 degrees is undefined.");
+        }
+    }
+
+    static void zeroPowerZero() {
+        double result = Math.pow(0, 0);
+        if (result == 1) {
+            throw new ArithmeticException("Zero raised to the power of zero is indeterminate.");
+        }
+    }
+}
