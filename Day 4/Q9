@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class SetOperations {
+    public static Set<Integer> union(Set<Integer> setA, Set<Integer> setB) {
+        Set<Integer> result = new HashSet<>(setA);
+        result.addAll(setB);
+        return result;
+    }
+
+    public static Set<Integer> intersection(Set<Integer> setA, Set<Integer> setB) {
+        Set<Integer> result = new HashSet<>(setA);
+        result.retainAll(setB);
+        return result;
+    }
+
+    public static Set<Integer> difference(Set<Integer> setA, Set<Integer> setB) {
+        Set<Integer> result = new HashSet<>(setA);
+        result.removeAll(setB);
+        return result;
+    }
+}
