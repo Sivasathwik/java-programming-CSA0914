@@ -1,0 +1,69 @@
+abstract class Statistics {
+
+    abstract int total(int[] numbers);
+
+    abstract double average(int[] numbers);
+
+    double mean(int[] numbers) {
+        return average(numbers);
+    }
+
+    int mode(int[] numbers) {
+        int maxValue = 0, maxCount = 0;
+
+        for (int i = 0; i < numbers.length; ++i) {
+            int count = 0;
+            for (int j = 0; j < numbers.length; ++j) {
+                if (numbers[j] == numbers[i]) ++count;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                maxValue = numbers[i];
+            }
+        }
+        return maxValue;
+    }
+
+    double median(int[] numbers) {
+        int[] sortedNumbers = numbers.clone();
+        java.util.Arrays.sort(sortedNumbers);
+        int length = sortedNumbers.length;
+
+        if (length % 2 == 0) {
+            return (sortedNumbers[length / 2 - 1] + sortedNumbers[length / 2]) / 2.0;
+        } else {
+            return sortedNumbers[length / 2];
+        }
+    }
+}
+
+class ConcreteStatistics extends Statistics {
+
+    @Override
+    int total(int[] numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return sum;
+    }
+
+    @Override
+    double average(int[] numbers) {
+        return (double) total(numbers) / numbers.length;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5, 5, 6, 7, 8, 9};
+
+        ConcreteStatistics stats = new ConcreteStatistics();
+
+        System.out.println("Total: " + stats.total(numbers));
+        System.out.println("Average: " + stats.average(numbers));
+        System.out.println("Mean: " + stats.mean(numbers));
+        System.out.println("Mode: " + stats.mode(numbers));
+        System.out.println("Median: " + stats.median(numbers));
+    }
+}
