@@ -1,0 +1,54 @@
+public class ArrayIndexOutOfBoundsDemo {
+
+    public static void main(String[] args) {
+        try {
+            accessArrayElement();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Accessing an array element outside its bound: " + e.getMessage());
+        }
+
+        try {
+            iterateBeyondArrayLength();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Iterating beyond the array length: " + e.getMessage());
+        }
+
+        try {
+            nestedArrayIncorrectIndex();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Nested array and incorrect index: " + e.getMessage());
+        }
+
+        try {
+            passIncorrectArrayToMethod();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Passing incorrect array to the method: " + e.getMessage());
+        }
+    }
+
+    static void accessArrayElement() {
+        int[] array = {1, 2, 3};
+        int element = array[3]; // Accessing an invalid index
+    }
+
+    static void iterateBeyondArrayLength() {
+        int[] array = {1, 2, 3};
+        for (int i = 0; i <= array.length; i++) { // Looping beyond the length
+            System.out.println(array[i]);
+        }
+    }
+
+    static void nestedArrayIncorrectIndex() {
+        int[][] nestedArray = {{1, 2}, {3, 4}};
+        int value = nestedArray[1][2]; // Accessing an invalid index
+    }
+
+    static void passIncorrectArrayToMethod() {
+        int[] array = {1, 2, 3};
+        methodThatUsesArray(array);
+    }
+
+    static void methodThatUsesArray(int[] array) {
+        int value = array[5]; // Accessing an invalid index
+    }
+}
