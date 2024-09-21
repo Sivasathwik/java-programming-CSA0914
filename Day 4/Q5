@@ -1,0 +1,40 @@
+abstract class Statistics {
+    abstract double total();
+    abstract double average();
+
+    double mean(double[] numbers) {
+        return total() / numbers.length;
+    }
+
+    double mode(double[] numbers) {
+        Map<Double, Integer> frequency = new HashMap<>();
+        for (double num : numbers) {
+            frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+        }
+        return frequency.entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
+    }
+
+    double median(double[] numbers) {
+        Arrays.sort(numbers);
+        int mid = numbers.length / 2;
+        return (numbers.length % 2 == 0) ? (numbers[mid - 1] + numbers[mid]) / 2 : numbers[mid];
+    }
+}
+
+class ConcreteStatistics extends Statistics {
+    double[] data;
+
+    ConcreteStatistics(double[] data) {
+        this.data = data;
+    }
+
+    @Override
+    double total() {
+        return Arrays.stream(data).sum();
+    }
+
+    @Override
+    double average() {
+        return total() / data.length;
+    }
+}
