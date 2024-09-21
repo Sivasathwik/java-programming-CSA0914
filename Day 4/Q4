@@ -1,0 +1,8 @@
+import java.util.*;
+
+public int findMissingNumber(List<Integer> nums) {
+    int n = nums.size();
+    int total = n * (n + 1) / 2;
+    int sum = nums.stream().mapToInt(Integer::intValue).sum();
+    return total - sum;
+}
