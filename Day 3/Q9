@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class NonIntegerException extends Exception {
+    public NonIntegerException(String message) {
+        super(message);
+    }
+}
+
+public class CustomNonIntegerExceptionDemo {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter an integer value: ");
+        String input = scanner.nextLine();
+
+        try {
+            int number = parseInteger(input);
+            System.out.println("You entered: " + number);
+        } catch (NonIntegerException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+
+    static int parseInteger(String input) throws NonIntegerException {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new NonIntegerException("Input is not an integer.");
+        }
+    }
+}
