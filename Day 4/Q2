@@ -1,0 +1,9 @@
+import java.util.*;
+
+public List<Integer> rotateRight(List<Integer> list, int k) {
+    int n = list.size();
+    k = k % n;
+    List<Integer> rotated = new ArrayList<>(list.subList(n - k, n));
+    rotated.addAll(list.subList(0, n - k));
+    return rotated;
+}
