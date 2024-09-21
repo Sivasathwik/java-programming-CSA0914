@@ -1,0 +1,28 @@
+class Parent {
+    int a;
+    int b;
+
+    Parent() {
+        a = 10;
+        b = 15;
+    }
+
+    Parent(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent obj1 = new Parent();
+        obj1.disp();
+
+        Parent obj2 = new Parent(20, 25);
+        obj2.disp();
+    }
+}
