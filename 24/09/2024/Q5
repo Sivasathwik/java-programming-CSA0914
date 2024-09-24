@@ -1,0 +1,21 @@
+import java.util.Scanner;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+public class CurrentTimeGMT {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Input the time zone offset to GMT: ");
+        int offset = scanner.nextInt();
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        calendar.add(Calendar.MINUTE, offset);
+
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+
+        System.out.printf("Current time is %02d:%02d:%02d\n", hour, minute, second);
+    }
+}
