@@ -1,0 +1,27 @@
+public class IntegerToRoman {
+    // Define the Roman numeral symbols and their corresponding integer values.
+    private static final int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    private static final String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+    public static String intToRoman(int num) {
+        StringBuilder roman = new StringBuilder();
+
+        // Iterate over the defined values and symbols.
+        for (int i = 0; i < values.length; i++) {
+            // Append the symbol as many times as possible for the current value.
+            while (num >= values[i]) {
+                roman.append(symbols[i]);
+                num -= values[i];
+            }
+        }
+        return roman.toString();
+    }
+
+    public static void main(String[] args) {
+        int number = 1987;
+        System.out.println("Integer: " + number + " -> Roman Numeral: " + intToRoman(number));
+        
+        number = 3999;
+        System.out.println("Integer: " + number + " -> Roman Numeral: " + intToRoman(number));
+    }
+}
